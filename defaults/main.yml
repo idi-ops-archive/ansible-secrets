@@ -1,0 +1,9 @@
+---
+# List of secret environment variables.
+#
+# Example:
+# secrets_env_vars:
+#   - SECRET1=password
+#   - SECRET2=token
+secrets_env_vars: []
+

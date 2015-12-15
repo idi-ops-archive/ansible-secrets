@@ -1,0 +1,10 @@
+---
+- name: Create a file containing secret environment variables
+  template:
+    src: app-secrets.j2
+    dest: /etc/sysconfig/app-secrets
+    mode: 0600
+    owner: root
+    group: root
+  when: (is_centos) or (is_fedora)
+    
