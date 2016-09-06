@@ -7,4 +7,13 @@
     owner: root
     group: root
   when: (is_centos) or (is_fedora)
-    
+
+- name: Add secrets to ~/.bashrc in a Vagrant environment
+  blockinfile:
+    dest: /home/vagrant/.bashrc
+    block: |
+      export {{ item }}
+    marker: "# {mark} ANSIBLE MANAGED BLOCK {{item}}"
+  with_items: "{{ secrets_env_vars }}"
+  when: (is_vagrant)
+
